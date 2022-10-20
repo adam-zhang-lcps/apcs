@@ -1,0 +1,9 @@
+#+title: APCS Labs
+
+#+begin_quote
+It's dangerous to go alone! Take this.
+#+end_quote
+
+This repository contains the source code for all my assigned AP Comp Sci labs. All code is unlicensed and you are free to copy, modify, compile, or otherwise use this code is any manner.
+
+Comments with explanations are provided where I've been un-lazy enough to do so.
