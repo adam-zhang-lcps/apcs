@@ -143,19 +143,24 @@ public class HeatMap extends JPanel implements MouseListener {
             for (int i = 0; i < tempGrid.length; i++) {
                 for (int j = 0; j < tempGrid[i].length; j++) {
                     double total = tempGrid[i][j];
+                    int used = 1;
                     if (i > 0) {
                         total += tempGrid[i - 1][j];
+                        used++;
                     }
                     if (i < tempGrid.length - 1) {
                         total += tempGrid[i + 1][j];
+                        used++;
                     }
                     if (j > 0) {
                         total += tempGrid[i][j - 1];
+                        used++;
                     }
                     if (j < tempGrid[i].length - 1) {
                         total += tempGrid[i][j + 1];
+                        used++;
                     }
-                    tempGrid[i][j] = total / 5;
+                    tempGrid[i][j] = total / used;
                 }
             }
 
