@@ -1,23 +1,23 @@
 import java.awt.*;
 import java.awt.event.*;
-import java.awt.image.*;
 import java.util.ArrayList;
-import java.util.stream.Collectors;
 
 import javax.swing.*;
 
 public class MyPointPanel extends JPanel implements MouseListener {
     // constant
     private static final Color BACKGROUND = new Color(242, 43, 43);
+    private static final int WIDTH = 1000;
+    private static final int HEIGHT = 800;
 
     // fields
-    private ArrayList<Point> myPoints = new ArrayList<Point>();
+    private ArrayList<RotatingPoint> myPoints = new ArrayList<>();
     private Color myColor;
     private Timer t;
 
     public MyPointPanel(JFrame frame, int maxX, int maxY) {
         myColor = BACKGROUND;
-        t = new Timer(20, new Listener());
+        t = new Timer(50, new Listener());
         t.start();
         addMouseListener(this);
     }
@@ -25,6 +25,11 @@ public class MyPointPanel extends JPanel implements MouseListener {
     public void paintComponent(Graphics g) {
         g.setColor(myColor);
         g.fillRect(0, 0, getWidth(), getHeight());
+
+        // Coordinate grid linee
+        g.setColor(Color.WHITE);
+        g.fillRect(0, HEIGHT / 2 - 2, WIDTH, 4);
+        g.fillRect(WIDTH / 2 - 2, 0, 4, HEIGHT);
 
         // Intentionally using == to compare references,
         // since I know the memory addresses would be the same
@@ -50,7 +55,6 @@ public class MyPointPanel extends JPanel implements MouseListener {
 
     public void mouseClicked(MouseEvent e) {
         saySomething("Mouse pressed; # of clicks: " + e.getClickCount(), e);
-        myPoints.add(e.getPoint());
     }
 
     public void mouseReleased(MouseEvent e) {
@@ -79,7 +83,7 @@ public class MyPointPanel extends JPanel implements MouseListener {
         int x = e.getX();
         int y = e.getY();
 
-        // TODO: create new point and add to the list
+        myPoints.add(new RotatingPoint(x - HEIGHT / 2, y - WIDTH / 2, e.getButton() == MouseEvent.BUTTON1));
 
         repaint();
 
@@ -92,13 +96,14 @@ public class MyPointPanel extends JPanel implements MouseListener {
 
     private class Listener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
+            myPoints.forEach(p -> p.move());
             repaint();
         }
     }
 
     public static void main(String[] args) {
         JFrame frame = new JFrame("What is the Point");
-        frame.setSize(1000, 800);
+        frame.setSize(WIDTH, HEIGHT);
         frame.setLocation(50, 50);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setContentPane(new MyPointPanel(frame, 800, 400));
