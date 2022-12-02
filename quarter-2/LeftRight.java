@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-class Main {
+class LeftRight {
   public static void lr(String cur, int len, ArrayList<String> arr) {
     if (cur.length() == len) {
       arr.add(cur);
