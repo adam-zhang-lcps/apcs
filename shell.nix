@@ -9,6 +9,6 @@ mkShell {
     groovy # Java REPL
     (python3.withPackages (p: with p; [ black pyflakes isort matplotlib ]))
     python-language-server
-    java-language-server
+    jdt-language-server
   ];
 }
