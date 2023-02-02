@@ -1,30 +1,26 @@
 package arrayList;
 
-public class ArrayList implements List {
-  private Integer arr[];
+public class ArrayList<T> implements List<T> {
+  private T arr[];
   private int next = 0;
 
   public ArrayList() { this(10); }
 
-  public ArrayList(int size) { arr = new Integer[size]; }
+  public ArrayList(int size) { arr = (T[]) new Object[size]; }
 
   private void resizeIfNeeded() {
     if (next != arr.length) {
       return;
     }
-    Integer newArr[] = new Integer[arr.length * 2];
+    T newArr[] = (T[]) new Object[arr.length * 2];
     for (int i = 0; i < arr.length; i++) {
       newArr[i] = arr[i];
     }
     arr = newArr;
   }
 
-  private void printError(String error) {
-    System.out.printf("Exception: %s, ignoring operation\n", error);
-  }
-
   @Override
-  public boolean add(Integer value) {
+  public boolean add(T value) {
     resizeIfNeeded();
     arr[next] = value;
     next++;
@@ -32,10 +28,10 @@ public class ArrayList implements List {
   }
 
   @Override
-  public void add(int index, Integer value) {
+  public void add(int index, T value) {
     if (index < 0 || index > next) {
-      printError("invalid index");
-      return;
+      throw new IndexOutOfBoundsException(
+          String.format("size=%d, index=%d", next, index));
     }
     resizeIfNeeded();
     for (int i = next; i > index; i--) {
@@ -46,12 +42,12 @@ public class ArrayList implements List {
   }
 
   @Override
-  public Integer remove(int index) {
+  public T remove(int index) {
     if (index < 0 || index >= next) {
-      printError("invalid index");
-      return null;
+      throw new IndexOutOfBoundsException(
+          String.format("size=%d, index=%d", next, index));
     }
-    Integer value = arr[index];
+    T value = arr[index];
     for (int i = index; i < next - 1; i++) {
       arr[i] = arr[i + 1];
     }
@@ -65,16 +61,16 @@ public class ArrayList implements List {
   }
 
   @Override
-  public Integer get(int index) {
+  public T get(int index) {
     if (index < 0 || index >= next) {
-      printError("invalid index");
-      return null;
+      throw new IndexOutOfBoundsException(
+          String.format("size=%d, index=%d", next, index));
     }
     return arr[index];
   }
 
   @Override
-  public int indexOf(Integer value) {
+  public int indexOf(T value) {
     for (int i = 0; i < next; i++) {
       if (arr[i].equals(value)) {
         return i;
@@ -84,12 +80,12 @@ public class ArrayList implements List {
   }
 
   @Override
-  public Integer set(int index, Integer value) {
+  public T set(int index, T value) {
     if (index < 0 || index >= next) {
-      printError("invalid index");
-      return null;
+      throw new IndexOutOfBoundsException(
+          String.format("size=%d, index=%d", next, index));
     }
-    Integer oldValue = arr[index];
+    T oldValue = arr[index];
     arr[index] = value;
     return oldValue;
   }

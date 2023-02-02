@@ -41,7 +41,7 @@ public class TestArrayList {
      */
     printTestHeader(testCount++,
                     "create an ArrayList, add 2 elements, then call size()");
-    ArrayList myList = new ArrayList();
+    ArrayList<Integer> myList = new ArrayList<Integer>();
     // ArrayList<Integer> myList = new ArrayList<Integer>();
     myList.add(32);
     myList.add(16);

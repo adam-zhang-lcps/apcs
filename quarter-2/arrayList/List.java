@@ -1,15 +1,11 @@
 package arrayList;
 
-
-public interface List
-{
-	
-    void add(int index, Integer element);
-    boolean add(Integer element);
-    Integer get(int index);
-    Integer remove(int index);
-    Integer set(int index, Integer element);
-    int size();
-    int indexOf(Integer element);
-	
+public interface List<T> {
+  void add(int index, T element);
+  boolean add(T element);
+  T get(int index);
+  T remove(int index);
+  T set(int index, T element);
+  int size();
+  int indexOf(T element);
 }
