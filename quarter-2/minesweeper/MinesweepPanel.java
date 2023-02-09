@@ -1,11 +1,9 @@
-import javax.swing.*;
-
-import javafx.scene.input.MouseButton;
-
 import java.awt.*;
 import java.awt.event.*;
 import java.awt.image.*;
 import java.util.function.Consumer;
+import javafx.scene.input.MouseButton;
+import javax.swing.*;
 
 public class MinesweepPanel extends JPanel implements MouseListener {
     // constants
@@ -34,7 +32,6 @@ public class MinesweepPanel extends JPanel implements MouseListener {
                 f.accept(s);
             }
         }
-
     }
 
     /**
@@ -71,14 +68,17 @@ public class MinesweepPanel extends JPanel implements MouseListener {
         int yOffset = !offsetIsX ? offsetAmount : 0;
         for (int i = 0; i <= myGrid.length; i++) {
             for (int j = 0; j <= myGrid.length; j++) {
-                g.fillRect(i * tileSize - 1 + xOffset, yOffset, 2, getHeight() - yOffset * 2);
-                g.fillRect(xOffset, j * tileSize - 1 + yOffset, getWidth() - xOffset * 2, 2);
+                g.fillRect(i * tileSize - 1 + xOffset, yOffset, 2,
+                           getHeight() - yOffset * 2);
+                g.fillRect(xOffset, j * tileSize - 1 + yOffset,
+                           getWidth() - xOffset * 2, 2);
             }
         }
     }
 
     private void uncoverRecursively(int row, int col) {
-        if (row < 0 || col < 0 || row >= myGrid.length || col >= myGrid.length) {
+        if (row < 0 || col < 0 || row >= myGrid.length ||
+            col >= myGrid.length) {
             return;
         }
 
@@ -102,9 +102,9 @@ public class MinesweepPanel extends JPanel implements MouseListener {
 
     // Add methods you need to implement the MouseListener interface
     /**
-     * mousePressed call e.getX() and e.getY()to get the (x,y) coordinates of where
-     * the mouse was pressed. use getWidth() and getHeight to determine the
-     * dimensions of the panel
+     * mousePressed call e.getX() and e.getY()to get the (x,y) coordinates of
+     * where the mouse was pressed. use getWidth() and getHeight to determine
+     * the dimensions of the panel
      *
      * Hint: use getHeight with the number of rows to determine which row was
      * selected.
@@ -129,8 +129,8 @@ public class MinesweepPanel extends JPanel implements MouseListener {
         if (e.getButton() == MouseEvent.BUTTON1 && !s.isFlagged()) {
             uncoverRecursively(x, y);
 
-            // if the square's number was 9 (GameSquare.MINE), uncover all the board's
-            // Squares.
+            // if the square's number was 9 (GameSquare.MINE), uncover all the
+            // board's Squares.
             if (s.getNum() == Minesweeper.MINE) {
                 doOnGrid(sq -> sq.uncover());
             }
@@ -138,33 +138,28 @@ public class MinesweepPanel extends JPanel implements MouseListener {
             s.toggleFlag();
         }
 
-        // repaint() will cause paintComponent() to get invoked, which will redraw
-        // myGrid
+        // repaint() will cause paintComponent() to get invoked, which will
+        // redraw myGrid
         repaint();
     }
 
     void saySomething(String eventDescription, MouseEvent e) {
-        System.out.println(eventDescription + " detected on " + e.getComponent().getClass().getName() + "." + "\n");
+        System.out.println(eventDescription + " detected on " +
+                           e.getComponent().getClass().getName() + "."
+                           + "\n");
     }
 
     @Override
-    public void mouseClicked(MouseEvent e) {
-    }
+    public void mouseClicked(MouseEvent e) {}
 
     @Override
-    public void mouseReleased(MouseEvent e) {
-
-    }
+    public void mouseReleased(MouseEvent e) {}
 
     @Override
-    public void mouseEntered(MouseEvent e) {
-
-    }
+    public void mouseEntered(MouseEvent e) {}
 
     @Override
-    public void mouseExited(MouseEvent e) {
-
-    }
+    public void mouseExited(MouseEvent e) {}
 
     /*
      * ====================================================== Code to create the
@@ -182,5 +177,4 @@ public class MinesweepPanel extends JPanel implements MouseListener {
         frame.setContentPane(new MinesweepPanel(10));
         frame.setVisible(true);
     }
-
 }

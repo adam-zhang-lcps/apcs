@@ -11,7 +11,8 @@ public class Circle extends Shape {
         this.radius = diameter / 2;
     }
 
-    public Circle(int x, int y, int diameter, Color color, int deltaX, int deltaY) {
+    public Circle(int x, int y, int diameter, Color color, int deltaX,
+                  int deltaY) {
         super(x, y, color, deltaX, deltaY);
         this.diameter = diameter;
         this.radius = diameter / 2;
@@ -43,18 +44,14 @@ public class Circle extends Shape {
         }
     }
 
-    public int getDiameter() {
-        return diameter;
-    }
+    public int getDiameter() { return diameter; }
 
     public void setDiameter(int diameter) {
         this.diameter = diameter;
         this.radius = diameter / 2;
     }
 
-    public int getRadius() {
-        return radius;
-    }
+    public int getRadius() { return radius; }
 
     public void setRadius(int radius) {
         this.radius = radius;

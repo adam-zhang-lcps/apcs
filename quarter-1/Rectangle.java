@@ -9,7 +9,8 @@ public class Rectangle extends Square {
         this.height = height;
     }
 
-    public Rectangle(int x, int y, int width, int height, Color color, int deltaX, int deltaY) {
+    public Rectangle(int x, int y, int width, int height, Color color,
+                     int deltaX, int deltaY) {
         super(x, y, width, color, deltaX, deltaY);
         this.height = height;
     }
@@ -17,7 +18,8 @@ public class Rectangle extends Square {
     @Override
     public void draw(Graphics g) {
         g.setColor(getColor());
-        g.fillRect(getX() - getWidth() / 2, getY() - height / 2, getWidth(), height);
+        g.fillRect(getX() - getWidth() / 2, getY() - height / 2, getWidth(),
+                   height);
     }
 
     @Override
@@ -40,11 +42,7 @@ public class Rectangle extends Square {
         }
     }
 
-    public int getHeight() {
-        return height;
-    }
+    public int getHeight() { return height; }
 
-    public void setHeight(int height) {
-        this.height = height;
-    }
+    public void setHeight(int height) { this.height = height; }
 }

@@ -11,7 +11,8 @@ public class Diamond extends Shape {
         this.height = height;
     }
 
-    public Diamond(int x, int y, int width, int height, Color color, int deltaX, int deltaY) {
+    public Diamond(int x, int y, int width, int height, Color color, int deltaX,
+                   int deltaY) {
         super(x, y, color, deltaX, deltaY);
         this.width = width;
         this.height = height;
@@ -20,8 +21,10 @@ public class Diamond extends Shape {
     @Override
     public void draw(Graphics g) {
         g.setColor(getColor());
-        int[] xPoints = { getX(), getX() + width / 2, getX() + width, getX() + width / 2 };
-        int[] yPoints = { getY() + height / 2, getY(), getY() + height / 2, getY() + height };
+        int[] xPoints = {getX(), getX() + width / 2, getX() + width,
+                         getX() + width / 2};
+        int[] yPoints = {getY() + height / 2, getY(), getY() + height / 2,
+                         getY() + height};
         g.fillPolygon(xPoints, yPoints, 4);
     }
 
@@ -45,19 +48,11 @@ public class Diamond extends Shape {
         }
     }
 
-    public int getWidth() {
-        return width;
-    }
+    public int getWidth() { return width; }
 
-    public int getHeight() {
-        return height;
-    }
+    public int getHeight() { return height; }
 
-    public void setWidth(int width) {
-        this.width = width;
-    }
+    public void setWidth(int width) { this.width = width; }
 
-    public void setHeight(int height) {
-        this.height = height;
-    }
+    public void setHeight(int height) { this.height = height; }
 }

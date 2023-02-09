@@ -9,7 +9,8 @@ public class Square extends Shape {
         this.width = width;
     }
 
-    public Square(int x, int y, int width, Color color, int deltaX, int deltaY) {
+    public Square(int x, int y, int width, Color color, int deltaX,
+                  int deltaY) {
         super(x, y, color, deltaX, deltaY);
         this.width = width;
     }
@@ -41,11 +42,7 @@ public class Square extends Shape {
         }
     }
 
-    public int getWidth() {
-        return width;
-    }
+    public int getWidth() { return width; }
 
-    public void setWidth(int width) {
-        this.width = width;
-    }
+    public void setWidth(int width) { this.width = width; }
 }

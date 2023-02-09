@@ -19,7 +19,8 @@ public class OlympicScoring {
         ArrayList<Double> scores = new ArrayList<Double>();
         Scanner input = new Scanner(System.in);
         for (int i = 0; i < judges.length; i++) {
-            // don't want a new line after the prompt, so use print instead of println
+            // don't want a new line after the prompt, so use print instead of
+            // println
             System.out.print("Enter score for judge: " + judges[i] + " = ");
             double score = input.nextDouble();
             scores.add(score);
@@ -56,7 +57,7 @@ public class OlympicScoring {
 
     // Completed for you do not modify
     public static String[] chooseJudges() {
-        String[] judges = new String[(int) (Math.random() * 3 + 5)];
+        String[] judges = new String[(int)(Math.random() * 3 + 5)];
         ArrayList<String> countries = new ArrayList<String>();
         countries.add("Germany");
         countries.add("USA");
@@ -69,11 +70,10 @@ public class OlympicScoring {
         countries.add("Mexico");
         countries.add("Belgium");
         for (int i = 0; i < judges.length; i++) {
-            int choice = (int) (Math.random() * countries.size());
+            int choice = (int)(Math.random() * countries.size());
             judges[i] = countries.get(choice);
             countries.remove(choice);
         }
         return judges;
     }
-
 }

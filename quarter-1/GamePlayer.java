@@ -12,27 +12,21 @@ public abstract class GamePlayer {
      *
      * @param playerName the name of the player
      */
-    public GamePlayer(String playerName) {
-        name = playerName;
-    }
+    public GamePlayer(String playerName) { name = playerName; }
 
     /**
      * Returns the name of the player
      *
      * @return the name of the player
      */
-    public String getName() {
-        return name;
-    }
+    public String getName() { return name; }
 
     /**
      * Returns the player's choice of weapon for the game as an integer
      *
      * @return the player's choice of weapon for the game as an integer
      */
-    public int getChoice() {
-        return choice;
-    }
+    public int getChoice() { return choice; }
 
     /**
      * Returns the name of the player's choice of weapon
@@ -56,9 +50,7 @@ public abstract class GamePlayer {
      *
      * @param playerChoice the player's choice of weapon
      */
-    public void setChoice(int playerChoice) {
-        choice = playerChoice;
-    }
+    public void setChoice(int playerChoice) { choice = playerChoice; }
 
     /**
      * The player chooses their weapon
@@ -68,18 +60,14 @@ public abstract class GamePlayer {
     /**
      * Add one to the total number of wins
      */
-    public void win() {
-        wins++;
-    }
+    public void win() { wins++; }
 
     /**
      * Returns the number of wins
      *
      * @return the number of wins
      */
-    public int getWins() {
-        return wins;
-    }
+    public int getWins() { return wins; }
 
     @Override
     public String toString() {

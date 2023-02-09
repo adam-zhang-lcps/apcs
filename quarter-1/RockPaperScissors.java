@@ -36,10 +36,10 @@ public class RockPaperScissors {
             printWinner(winner);
             printRecord(player1);
             printRecord(player2);
-        } while (player1.getWins() < winningScore && player2.getWins() < winningScore);
+        } while (player1.getWins() < winningScore &&
+                 player2.getWins() < winningScore);
 
         printEndGameMessage();
-
     }
 
     /**
@@ -87,7 +87,8 @@ public class RockPaperScissors {
      * @return returns the <code>GamePlayer</code> who wins the game,
      *         <code>null</code> if there is a tie
      */
-    private static GamePlayer compareChoices(GamePlayer player1, GamePlayer player2) {
+    private static GamePlayer compareChoices(GamePlayer player1,
+                                             GamePlayer player2) {
         int winning = (player1.getChoice() + 1) / 4;
         if (player2.getChoice() == winning) {
             return player2;
@@ -107,8 +108,9 @@ public class RockPaperScissors {
     private static void showChoices(GamePlayer player1, GamePlayer player2) {
 
         System.out.println();
-        System.out.println(player1.getName() + ": " + player1.getChoiceName() + "   vs.  " + player2.getName() + ": "
-                + player2.getChoiceName());
+        System.out.println(player1.getName() + ": " + player1.getChoiceName() +
+                           "   vs.  " + player2.getName() + ": " +
+                           player2.getChoiceName());
         System.out.println();
     }
 
@@ -119,7 +121,8 @@ public class RockPaperScissors {
      */
     private static GamePlayer choosePlayerType() {
         try {
-            BufferedReader r = new BufferedReader(new InputStreamReader(System.in));
+            BufferedReader r =
+                new BufferedReader(new InputStreamReader(System.in));
             int type;
             String name = "";
             GamePlayer player;
@@ -139,11 +142,14 @@ public class RockPaperScissors {
                 name = r.readLine();
                 player = new HumanPlayer(name);
             } else if (type == COMPUTER) {
-                player = new ComputerPlayer("Skynet"); // You may change this name
+                player =
+                    new ComputerPlayer("Skynet"); // You may change this name
             } else if (type == SCISSOR_LOVER) {
-                player = new ScissorLoverPlayer("Your Mom"); // You may change this name
+                player = new ScissorLoverPlayer(
+                    "Your Mom"); // You may change this name
             } else {
-                player = new RockLoverPlayer("Bart Simpson"); // You may change this name
+                player = new RockLoverPlayer(
+                    "Bart Simpson"); // You may change this name
             }
 
             return player;
@@ -158,5 +164,4 @@ public class RockPaperScissors {
     private static void printEndGameMessage() {
         System.out.println("Game over");
     }
-
 }

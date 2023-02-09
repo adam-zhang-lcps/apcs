@@ -19,8 +19,8 @@ public class Minesweeper {
     }
 
     /**
-     * Initialize the grid with a given grid size. Note, the grid will always be a
-     * square.
+     * Initialize the grid with a given grid size. Note, the grid will always be
+     * a square.
      *
      * @param size the number of rows and columns in the 2D array
      * @return a square 2D array of <code>size</code> x <code>size</code>
@@ -65,13 +65,11 @@ public class Minesweeper {
      * @param size the number of rows and columns in the 2D array
      * @return a square 2D array of <code>size</code> x <code>size</code>
      */
-    private static int[][] makeGrid(int size) {
-        return new int[size][size];
-    }
+    private static int[][] makeGrid(int size) { return new int[size][size]; }
 
     /**
-     * Randomly places n mines in the 2D array, <code>grid</code>, where n is equal
-     * to <code>size</code>
+     * Randomly places n mines in the 2D array, <code>grid</code>, where n is
+     * equal to <code>size</code>
      *
      * @param size the number of mines to place in the <code>grid</code>
      * @param grid the 2D array
@@ -90,9 +88,9 @@ public class Minesweeper {
     }
 
     /**
-     * After the MINEs have been set, this method is called to set the rest of the
-     * elements in the grid. Each element is set to the count of the number of
-     * surrounding mines.
+     * After the MINEs have been set, this method is called to set the rest of
+     * the elements in the grid. Each element is set to the count of the number
+     * of surrounding mines.
      *
      * This method should traverse the grid and call countSurroundingMines() for
      * each (r,c).
@@ -154,8 +152,9 @@ public class Minesweeper {
     }
 
     /**
-     * Prints the 2D array of integers you can use the print format method, printf,
-     * display an integer with 2 spaces: System.out.printf("%2d ", grid[r][c]);
+     * Prints the 2D array of integers you can use the print format method,
+     * printf, display an integer with 2 spaces: System.out.printf("%2d ",
+     * grid[r][c]);
      *
      * @param grid the 2D array
      */
@@ -167,5 +166,4 @@ public class Minesweeper {
             System.out.printf("%n");
         }
     }
-
 }

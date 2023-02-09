@@ -8,8 +8,8 @@ public class Rational {
     }
 
     /**
-     * Constructs an object representing a rational number in the form of numer /
-     * denom. The rational number will be simplified.
+     * Constructs an object representing a rational number in the form of numer
+     * / denom. The rational number will be simplified.
      *
      * @param numer the numerator of a rational number
      * @param denom the denominator of a rational number
@@ -29,14 +29,16 @@ public class Rational {
      */
     public Rational add(Rational num) {
         int commonDenominator = num.denominator * denominator;
-        int newNumerator = num.numerator * denominator + numerator * num.denominator;
+        int newNumerator =
+            num.numerator * denominator + numerator * num.denominator;
 
         return new Rational(newNumerator, commonDenominator);
     }
 
     public Rational subtract(Rational num) {
         int commonDenominator = num.denominator * denominator;
-        int newNumerator = numerator * num.denominator - num.numerator * denominator;
+        int newNumerator =
+            numerator * num.denominator - num.numerator * denominator;
 
         return new Rational(newNumerator, commonDenominator);
     }
@@ -48,9 +50,7 @@ public class Rational {
         return new Rational(newNumerator, newDenominator);
     }
 
-    public Rational divide(Rational num) {
-        return multiply(num.reciprocal());
-    }
+    public Rational divide(Rational num) { return multiply(num.reciprocal()); }
 
     public Rational reciprocal() {
         return new Rational(denominator, numerator);
@@ -92,7 +92,7 @@ public class Rational {
 
     public boolean equals(Object obj) {
         if (obj instanceof Rational) {
-            Rational r = (Rational) obj;
+            Rational r = (Rational)obj;
             return numerator == r.numerator && denominator == r.denominator;
         }
         return false;

@@ -1,15 +1,15 @@
 import java.util.ArrayList;
 
 public class UserName {
-    // The list of possible user names, based on a user’s first and last names and
-    // initialized by the constructor.
+    // The list of possible user names, based on a user’s first and last names
+    // and initialized by the constructor.
 
     /* to be implemented as part of part(a) */
     /**
      * Constructs a UserName object as described in part (a).
      *
-     * Precondition: firstName and lastName have length greater than 0 and contain
-     * only uppercase and lowercase letters.
+     * Precondition: firstName and lastName have length greater than 0 and
+     * contain only uppercase and lowercase letters.
      *
      */
 
@@ -36,8 +36,8 @@ public class UserName {
     }
 
     /**
-     * Removes strings from possibleNames that are found in usedNames as described
-     * in part (b).
+     * Removes strings from possibleNames that are found in usedNames as
+     * described in part (b).
      *
      */
 

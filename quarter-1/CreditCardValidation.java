@@ -6,7 +6,7 @@ class Main {
         boolean shouldDouble = false;
 
         while (num > 0) {
-            int curNum = (int) (num % 10);
+            int curNum = (int)(num % 10);
 
             if (shouldDouble) {
                 curNum *= 2;
@@ -46,7 +46,8 @@ class Main {
         String resStr = "fail";
         if (expResult == result && expType.compareTo(cardType) == 0)
             resStr = "pass";
-        System.out.printf("%6s %10s %16d is %5b\n", resStr, cardType, num, result);
+        System.out.printf("%6s %10s %16d is %5b\n", resStr, cardType, num,
+                          result);
     }
 
     public static void main(String[] args) {
@@ -54,9 +55,10 @@ class Main {
          * Expected Results
          *******************************************
          * result type card number pass AMEX 379354508162306 is true pass Visa
-         * 4388576018402626 is false pass Visa 4556737586899855 is true pass Discover
-         * 6011530160038519 is true pass Discover 6011530170038519 is false pass
-         * MasterCard 5172964491701916 is true pass AMEX 379965901638574 is true
+         * 4388576018402626 is false pass Visa 4556737586899855 is true pass
+         *Discover 6011530160038519 is true pass Discover 6011530170038519 is
+         *false pass MasterCard 5172964491701916 is true pass AMEX
+         *379965901638574 is true
          *********************************************/
 
         System.out.printf("%6s %10s %16s\n", "result", "type", "card number");
@@ -71,7 +73,8 @@ class Main {
         Scanner s = new Scanner(System.in);
         System.out.println("Enter a credit card number");
         long num = s.nextLong();
-        System.out.printf("Type: %s, Valid: %b%n", getCardType(num), verifyCardNum(num));
+        System.out.printf("Type: %s, Valid: %b%n", getCardType(num),
+                          verifyCardNum(num));
         s.close();
     }
 }

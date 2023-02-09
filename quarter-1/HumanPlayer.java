@@ -7,9 +7,7 @@ public class HumanPlayer extends GamePlayer {
      *
      * @param playerName the name of the player
      */
-    public HumanPlayer(String playerName) {
-        super(playerName);
-    }
+    public HumanPlayer(String playerName) { super(playerName); }
 
     @Override
     /**
@@ -30,5 +28,4 @@ public class HumanPlayer extends GamePlayer {
         }
         s.close();
     }
-
 }

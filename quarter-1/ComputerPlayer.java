@@ -2,14 +2,12 @@ import java.util.Random;
 
 public class ComputerPlayer extends GamePlayer {
     /**
-     * Constructs a new ComputerPlayer that represents human playing with the given
-     * playerName
+     * Constructs a new ComputerPlayer that represents human playing with the
+     * given playerName
      *
      * @param playerName the name of the player
      */
-    public ComputerPlayer(String playerName) {
-        super(playerName);
-    }
+    public ComputerPlayer(String playerName) { super(playerName); }
 
     @Override
     /**

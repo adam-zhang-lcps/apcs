@@ -5,9 +5,7 @@ public class ScissorLoverPlayer extends GamePlayer {
      *
      * @param playerName the name of the player
      */
-    public ScissorLoverPlayer(String playerName) {
-        super(playerName);
-    }
+    public ScissorLoverPlayer(String playerName) { super(playerName); }
 
     @Override
     /**
@@ -16,5 +14,4 @@ public class ScissorLoverPlayer extends GamePlayer {
     public void makeChoice() {
         setChoice(GamePlayer.SCISSORS);
     }
-
 }

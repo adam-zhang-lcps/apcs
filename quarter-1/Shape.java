@@ -30,43 +30,23 @@ public abstract class Shape {
 
     public abstract void move(int width, int height);
 
-    public int getX() {
-        return x;
-    }
+    public int getX() { return x; }
 
-    public void setX(int x) {
-        this.x = x;
-    }
+    public void setX(int x) { this.x = x; }
 
-    public int getY() {
-        return y;
-    }
+    public int getY() { return y; }
 
-    public void setY(int y) {
-        this.y = y;
-    }
+    public void setY(int y) { this.y = y; }
 
-    public Color getColor() {
-        return color;
-    }
+    public Color getColor() { return color; }
 
-    public void setColor(Color color) {
-        this.color = color;
-    }
+    public void setColor(Color color) { this.color = color; }
 
-    public int getDeltaX() {
-        return deltaX;
-    }
+    public int getDeltaX() { return deltaX; }
 
-    public void setDeltaX(int deltaX) {
-        this.deltaX = deltaX;
-    }
+    public void setDeltaX(int deltaX) { this.deltaX = deltaX; }
 
-    public int getDeltaY() {
-        return deltaY;
-    }
+    public int getDeltaY() { return deltaY; }
 
-    public void setDeltaY(int deltaY) {
-        this.deltaY = deltaY;
-    }
+    public void setDeltaY(int deltaY) { this.deltaY = deltaY; }
 }

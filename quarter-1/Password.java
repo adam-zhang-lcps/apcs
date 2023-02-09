@@ -39,7 +39,8 @@ public class Password {
         if (password.chars().allMatch(c -> !Character.isDigit(c))) {
             invalidReasons.add("no digits");
         }
-        if (password.chars().allMatch(c -> Character.isLetterOrDigit(c) || c == ' ')) {
+        if (password.chars().allMatch(
+                c -> Character.isLetterOrDigit(c) || c == ' ')) {
             invalidReasons.add("no special characters");
         }
 
@@ -52,11 +53,7 @@ public class Password {
         validate();
     }
 
-    public boolean isValid() {
-        return isValid;
-    }
+    public boolean isValid() { return isValid; }
 
-    public String getInvalidReason() {
-        return invalidReason;
-    }
+    public String getInvalidReason() { return invalidReason; }
 }

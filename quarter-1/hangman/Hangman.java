@@ -1,7 +1,7 @@
 package hangman;
 
-import javax.swing.*;
 import java.awt.*;
+import javax.swing.*;
 
 public class Hangman extends JPanel {
 
@@ -23,9 +23,7 @@ public class Hangman extends JPanel {
         }
     }
 
-    public String getString() {
-        return currString;
-    }
+    public String getString() { return currString; }
 
     public void reset(String str) {
         incorrectGuesses = 0;
@@ -42,7 +40,8 @@ public class Hangman extends JPanel {
         // Find indexes with ch and update currString
         for (int i = 0; i < answerString.length(); i++) {
             if (answerString.charAt(i) == ch) {
-                currString = currString.substring(0, i * 2) + ch + currString.substring(i * 2 + 1);
+                currString = currString.substring(0, i * 2) + ch +
+                             currString.substring(i * 2 + 1);
                 found = true;
             }
         }
@@ -64,52 +63,57 @@ public class Hangman extends JPanel {
     public void drawFace(Graphics g, int midX) {
         int height = getHeight();
 
-        int diameter = (int) (HEAD_PERCENT * height / 100.0);
-        int start_y = (int) (TOP_PERCENT * (height / 100.0));
+        int diameter = (int)(HEAD_PERCENT * height / 100.0);
+        int start_y = (int)(TOP_PERCENT * (height / 100.0));
         g.fillOval(midX - diameter / 2, start_y, diameter, diameter);
     }
 
     public void drawTorso(Graphics g, int midX) {
         int height = getHeight();
 
-        int start_y = (int) ((TOP_PERCENT + HEAD_PERCENT) * (height / 100.0));
-        int end_y = (int) ((TOP_PERCENT + HEAD_PERCENT + TORSO_PERCENT) * (height / 100.0));
+        int start_y = (int)((TOP_PERCENT + HEAD_PERCENT) * (height / 100.0));
+        int end_y = (int)((TOP_PERCENT + HEAD_PERCENT + TORSO_PERCENT) *
+                          (height / 100.0));
         g.drawLine(midX, start_y, midX, end_y);
     }
 
     public void drawRightArm(Graphics g, int midX) {
         int angle = 315;
-        int length = (int) ((TORSO_PERCENT / 2) * (getHeight() / 100.0));
-        int start_y = (int) ((TOP_PERCENT + HEAD_PERCENT + TORSO_PERCENT / 4) * (getHeight() / 100.0));
-        int end_x = (int) (midX + length * Math.cos(angle * Math.PI / 180));
-        int end_y = (int) (start_y - length * Math.sin(angle * Math.PI / 180));
+        int length = (int)((TORSO_PERCENT / 2) * (getHeight() / 100.0));
+        int start_y = (int)((TOP_PERCENT + HEAD_PERCENT + TORSO_PERCENT / 4) *
+                            (getHeight() / 100.0));
+        int end_x = (int)(midX + length * Math.cos(angle * Math.PI / 180));
+        int end_y = (int)(start_y - length * Math.sin(angle * Math.PI / 180));
         g.drawLine(midX, start_y, end_x, end_y);
     }
 
     public void drawLeftArm(Graphics g, int midX) {
         int angle = 225;
-        int length = (int) ((TORSO_PERCENT / 2) * (getHeight() / 100.0));
-        int start_y = (int) ((TOP_PERCENT + HEAD_PERCENT + TORSO_PERCENT / 4) * (getHeight() / 100.0));
-        int end_x = (int) (midX + length * Math.cos(angle * Math.PI / 180));
-        int end_y = (int) (start_y - length * Math.sin(angle * Math.PI / 180));
+        int length = (int)((TORSO_PERCENT / 2) * (getHeight() / 100.0));
+        int start_y = (int)((TOP_PERCENT + HEAD_PERCENT + TORSO_PERCENT / 4) *
+                            (getHeight() / 100.0));
+        int end_x = (int)(midX + length * Math.cos(angle * Math.PI / 180));
+        int end_y = (int)(start_y - length * Math.sin(angle * Math.PI / 180));
         g.drawLine(midX, start_y, end_x, end_y);
     }
 
     public void drawRightLeg(Graphics g, int midX) {
         int angle = 315;
-        int length = (int) ((TORSO_PERCENT / 2) * (getHeight() / 100.0));
-        int start_y = (int) ((TOP_PERCENT + HEAD_PERCENT + TORSO_PERCENT) * (getHeight() / 100.0));
-        int end_x = (int) (midX + length * Math.cos(angle * Math.PI / 180));
-        int end_y = (int) (start_y - length * Math.sin(angle * Math.PI / 180));
+        int length = (int)((TORSO_PERCENT / 2) * (getHeight() / 100.0));
+        int start_y = (int)((TOP_PERCENT + HEAD_PERCENT + TORSO_PERCENT) *
+                            (getHeight() / 100.0));
+        int end_x = (int)(midX + length * Math.cos(angle * Math.PI / 180));
+        int end_y = (int)(start_y - length * Math.sin(angle * Math.PI / 180));
         g.drawLine(midX, start_y, end_x, end_y);
     }
 
     public void drawLeftLeg(Graphics g, int midX) {
         int angle = 225;
-        int length = (int) ((TORSO_PERCENT / 2) * (getHeight() / 100.0));
-        int start_y = (int) ((TOP_PERCENT + HEAD_PERCENT + TORSO_PERCENT) * (getHeight() / 100.0));
-        int end_x = (int) (midX + length * Math.cos(angle * Math.PI / 180));
-        int end_y = (int) (start_y - length * Math.sin(angle * Math.PI / 180));
+        int length = (int)((TORSO_PERCENT / 2) * (getHeight() / 100.0));
+        int start_y = (int)((TOP_PERCENT + HEAD_PERCENT + TORSO_PERCENT) *
+                            (getHeight() / 100.0));
+        int end_x = (int)(midX + length * Math.cos(angle * Math.PI / 180));
+        int end_y = (int)(start_y - length * Math.sin(angle * Math.PI / 180));
         g.drawLine(midX, start_y, end_x, end_y);
     }
 
@@ -139,5 +143,4 @@ public class Hangman extends JPanel {
         if (incorrectGuesses > 5)
             drawLeftLeg(g, width / 2);
     }
-
 }

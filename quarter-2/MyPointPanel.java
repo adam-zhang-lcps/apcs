@@ -1,7 +1,6 @@
 import java.awt.*;
 import java.awt.event.*;
 import java.util.ArrayList;
-
 import javax.swing.*;
 
 public class MyPointPanel extends JPanel implements MouseListener {
@@ -33,14 +32,19 @@ public class MyPointPanel extends JPanel implements MouseListener {
 
         // Intentionally using == to compare references,
         // since I know the memory addresses would be the same
-        double largestDistance = myPoints.stream()
-                .flatMapToDouble(p -> myPoints.stream().mapToDouble(p2 -> p.distance(p2))).max().orElse(0);
+        double largestDistance =
+            myPoints.stream()
+                .flatMapToDouble(
+                    p -> myPoints.stream().mapToDouble(p2 -> p.distance(p2)))
+                .max()
+                .orElse(0);
         // Draw lines first, so the points are on top
         for (Point p : myPoints) {
             for (Point p2 : myPoints) {
                 // Using == again
                 if (p != p2) {
-                    int brightness = (int) (255 * (p.distance(p2) / largestDistance));
+                    int brightness =
+                        (int)(255 * (p.distance(p2) / largestDistance));
                     g.setColor(new Color(brightness, brightness, brightness));
                     g.drawLine(p.x, p.y, p2.x, p2.y);
                 }
@@ -77,13 +81,15 @@ public class MyPointPanel extends JPanel implements MouseListener {
     }
 
     public void mousePressed(MouseEvent e) {
-        saySomething("Mouse pressed (# of clicks: " + e.getClickCount() + ")", e);
+        saySomething("Mouse pressed (# of clicks: " + e.getClickCount() + ")",
+                     e);
 
         // retrieves x and y location of the click
         int x = e.getX();
         int y = e.getY();
 
-        myPoints.add(new RotatingPoint(x - HEIGHT / 2, y - WIDTH / 2, e.getButton() == MouseEvent.BUTTON1));
+        myPoints.add(new RotatingPoint(x - HEIGHT / 2, y - WIDTH / 2,
+                                       e.getButton() == MouseEvent.BUTTON1));
 
         repaint();
 
@@ -91,7 +97,9 @@ public class MyPointPanel extends JPanel implements MouseListener {
     }
 
     public void saySomething(String eventDescription, MouseEvent e) {
-        System.out.println(eventDescription + " detected on " + e.getComponent().getClass().getName() + "." + "\n");
+        System.out.println(eventDescription + " detected on " +
+                           e.getComponent().getClass().getName() + "."
+                           + "\n");
     }
 
     private class Listener implements ActionListener {

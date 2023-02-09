@@ -1,8 +1,6 @@
 import java.awt.Color;
 import java.awt.Graphics;
-
 import java.awt.image.BufferedImage;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
@@ -26,9 +24,11 @@ public class ShapeTester extends JPanel {
         Square leftSquare = new Square(0, 100, 100, Color.YELLOW);
         Square square = new Square(500, 200, 100, Color.RED);
 
-        topLeftCircle.draw(buffer); // ensure only 25% of the blue circle appears on screen
+        topLeftCircle.draw(
+            buffer); // ensure only 25% of the blue circle appears on screen
         middleCircle.draw(buffer);
-        leftSquare.draw(buffer); // ensure only 50% of the yellow square appears on the screen
+        leftSquare.draw(buffer); // ensure only 50% of the yellow square appears
+                                 // on the screen
         square.draw(buffer);
         // Draw two rectangles
         new Rectangle(200, 200, 50, 60, Color.BLUE).draw(buffer);
@@ -63,5 +63,4 @@ public class ShapeTester extends JPanel {
         frame.setContentPane(new ShapeTester());
         frame.setVisible(true);
     }
-
 }

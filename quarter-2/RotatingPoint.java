@@ -11,7 +11,7 @@ public class RotatingPoint extends Point {
     public RotatingPoint(int x, int y, boolean direction) {
         super(x, y);
         radius = Math.sqrt(x * x + y * y);
-        angle = Math.atan((double) y / x);
+        angle = Math.atan((double)y / x);
         this.direction = direction;
     }
 
@@ -20,6 +20,6 @@ public class RotatingPoint extends Point {
         angle %= 2 * Math.PI;
         double x = radius * Math.cos(angle) + PANEL_WIDTH / 2;
         double y = radius * Math.sin(angle) + PANEL_HEIGHT / 2;
-        setLocation((int) x, (int) y);
+        setLocation((int)x, (int)y);
     }
 }

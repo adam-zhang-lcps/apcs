@@ -1,5 +1,6 @@
 /* This lab is from Lesson 15: Finch Fractals
- * from https://learn.birdbraintechnologies.com/finch/java/program/lesson-15-finch-fractals?wvideo=rvk8lp96lj
+ * from
+ * https://learn.birdbraintechnologies.com/finch/java/program/lesson-15-finch-fractals?wvideo=rvk8lp96lj
  */
 
 public class FinchFractals {

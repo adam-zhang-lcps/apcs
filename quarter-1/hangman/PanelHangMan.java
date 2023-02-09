@@ -1,8 +1,8 @@
 package hangman;
 
-import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import javax.swing.*;
 
 public class PanelHangMan extends JPanel implements KeyListener {
     JLabel lettersUsedLabel, myWordLabel;
@@ -39,11 +39,11 @@ public class PanelHangMan extends JPanel implements KeyListener {
 
         this.addKeyListener(this);
         setFocusable(true);
-
     }
 
     /*
-     * Reset button clear out both labels get another word reset the Hangman object
+     * Reset button clear out both labels get another word reset the Hangman
+     * object
      */
     private class ListenerReset implements ActionListener {
         public void actionPerformed(ActionEvent e) {
@@ -62,7 +62,8 @@ public class PanelHangMan extends JPanel implements KeyListener {
         char c = e.getKeyChar();
 
         /*
-         * call the Hangman method to see if this character is in the answer string
+         * call the Hangman method to see if this character is in the answer
+         * string
          */
         boolean result = myHangman.tryCharacter(c);
         if (!result) {
@@ -75,13 +76,13 @@ public class PanelHangMan extends JPanel implements KeyListener {
     /** Handle the key pressed event from the text field. */
     public void keyPressed(KeyEvent e) {
         /*
-         * int keyCode = e.getKeyCode(); System.out.println("key pressed: " + keyCode);
+         * int keyCode = e.getKeyCode(); System.out.println("key pressed: " +
+         * keyCode);
          */
     }
 
     /** Handle the key released event from the text field. */
-    public void keyReleased(KeyEvent e) {
-    }
+    public void keyReleased(KeyEvent e) {}
 
     private void displayInfo(KeyEvent e, String keyStatus) {
 
@@ -95,11 +96,10 @@ public class PanelHangMan extends JPanel implements KeyListener {
 
         } else {
             int keyCode = e.getKeyCode();
-            keyString = "key code = " + keyCode + " (" + KeyEvent.getKeyText(keyCode) + ")";
+            keyString = "key code = " + keyCode + " (" +
+                        KeyEvent.getKeyText(keyCode) + ")";
         }
 
         System.out.println("output:: " + keyString);
-
     }
-
 }

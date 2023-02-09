@@ -5,9 +5,7 @@ public class RockLoverPlayer extends GamePlayer {
      *
      * @param playerName the name of the player
      */
-    public RockLoverPlayer(String playerName) {
-        super(playerName);
-    }
+    public RockLoverPlayer(String playerName) { super(playerName); }
 
     @Override
     /**
@@ -16,5 +14,4 @@ public class RockLoverPlayer extends GamePlayer {
     public void makeChoice() {
         setChoice(GamePlayer.ROCK);
     }
-
 }

@@ -1,8 +1,8 @@
-import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.util.Arrays;
 import java.util.Random;
+import javax.swing.*;
 
 public class ShapePanel extends JPanel {
     private static final Color BACKGROUND = new Color(120, 120, 120);
@@ -30,7 +30,9 @@ public class ShapePanel extends JPanel {
     public void initShapes() {
         shapes = new Shape[numShapes];
         Random r = new Random();
-        Color[] colors = { Color.RED, Color.BLUE, Color.GREEN, Color.YELLOW, Color.ORANGE, Color.MAGENTA, Color.CYAN };
+        Color[] colors = {Color.RED,    Color.BLUE,   Color.GREEN,
+                          Color.YELLOW, Color.ORANGE, Color.MAGENTA,
+                          Color.CYAN};
 
         for (int i = 0; i < shapes.length; i++) {
             int x = r.nextInt(701);

@@ -9,7 +9,8 @@ public class Triangle extends Shape {
         this.radius = radius;
     }
 
-    public Triangle(int x, int y, int radius, Color color, int deltaX, int deltaY) {
+    public Triangle(int x, int y, int radius, Color color, int deltaX,
+                    int deltaY) {
         super(x, y, color, deltaX, deltaY);
         this.radius = radius;
     }
@@ -17,8 +18,9 @@ public class Triangle extends Shape {
     @Override
     public void draw(Graphics g) {
         g.setColor(getColor());
-        g.fillPolygon(new int[] { getX(), getX() - radius, getX() + radius },
-                new int[] { getY() - radius, getY() + radius, getY() + radius }, 3);
+        g.fillPolygon(
+            new int[] {getX(), getX() - radius, getX() + radius},
+            new int[] {getY() - radius, getY() + radius, getY() + radius}, 3);
     }
 
     @Override
@@ -43,11 +45,7 @@ public class Triangle extends Shape {
         }
     }
 
-    public double getRadius() {
-        return radius;
-    }
+    public double getRadius() { return radius; }
 
-    public void setRadius(int radius) {
-        this.radius = radius;
-    }
+    public void setRadius(int radius) { this.radius = radius; }
 }

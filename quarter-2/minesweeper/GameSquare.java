@@ -1,11 +1,11 @@
 import java.awt.Color;
 import java.awt.Graphics;
-
 import javax.swing.ImageIcon;
 
 public class GameSquare {
-    private final String[] images = { null, "num1.jpg", "num2.jpg", "num3.jpg", "num4.jpg", "num5.jpg", "num6.jpg",
-            "num7.jpg", "num8.jpg", "bomb.jpg" };
+    private final String[] images = {
+        null,       "num1.jpg", "num2.jpg", "num3.jpg", "num4.jpg",
+        "num5.jpg", "num6.jpg", "num7.jpg", "num8.jpg", "bomb.jpg"};
     private boolean covered = true;
     private int row;
     private int col;
@@ -18,25 +18,15 @@ public class GameSquare {
         this.num = num;
     }
 
-    public void uncover() {
-        covered = false;
-    }
+    public void uncover() { covered = false; }
 
-    public void toggleFlag() {
-        flagged = !flagged;
-    }
+    public void toggleFlag() { flagged = !flagged; }
 
-    public boolean isCovered() {
-        return covered;
-    }
+    public boolean isCovered() { return covered; }
 
-    public boolean isFlagged() {
-        return flagged;
-    }
+    public boolean isFlagged() { return flagged; }
 
-    public int getNum() {
-        return num;
-    }
+    public int getNum() { return num; }
 
     public void draw(Graphics g, int tileSize, int offset, boolean offsetIsX) {
         int trueX = row * tileSize + (offsetIsX ? offset : 0);
@@ -45,15 +35,18 @@ public class GameSquare {
         if (flagged) {
             if (!covered) {
                 if (num == Minesweeper.MINE) {
-                    g.drawImage(new ImageIcon("assets/minesweeper/bomb.png").getImage(), trueX, trueY, tileSize,
-                            tileSize, null);
+                    g.drawImage(
+                        new ImageIcon("assets/minesweeper/bomb.png").getImage(),
+                        trueX, trueY, tileSize, tileSize, null);
                 } else {
-                    g.drawImage(new ImageIcon("assets/minesweeper/x.png").getImage(), trueX, trueY, tileSize, tileSize,
-                            null);
+                    g.drawImage(
+                        new ImageIcon("assets/minesweeper/x.png").getImage(),
+                        trueX, trueY, tileSize, tileSize, null);
                 }
             } else {
-                g.drawImage(new ImageIcon("assets/minesweeper/flag.png").getImage(), trueX, trueY, tileSize, tileSize,
-                        null);
+                g.drawImage(
+                    new ImageIcon("assets/minesweeper/flag.png").getImage(),
+                    trueX, trueY, tileSize, tileSize, null);
             }
             return;
         }
@@ -70,12 +63,14 @@ public class GameSquare {
             return;
         }
 
-        g.drawImage(new ImageIcon("assets/minesweeper/" + images[num]).getImage(), trueX, trueY, tileSize, tileSize,
-                null);
+        g.drawImage(
+            new ImageIcon("assets/minesweeper/" + images[num]).getImage(),
+            trueX, trueY, tileSize, tileSize, null);
     }
 
     @Override
     public String toString() {
-        return String.format("%d, %d, %s", row, col, covered ? "covered" : "not covered");
+        return String.format("%d, %d, %s", row, col,
+                             covered ? "covered" : "not covered");
     }
 }

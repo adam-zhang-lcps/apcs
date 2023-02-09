@@ -73,8 +73,8 @@ public class MagicSquare {
     }
 
     /**
-     * Precondition: mySquare is a square matrix of integers, which may or may not
-     * be a magic square.
+     * Precondition: mySquare is a square matrix of integers, which may or may
+     * not be a magic square.
      *
      * @return true if mySquare is a magic square, false otherwise
      */
@@ -98,5 +98,4 @@ public class MagicSquare {
         }
         return true;
     }
-
 }

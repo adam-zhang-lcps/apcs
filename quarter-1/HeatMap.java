@@ -1,6 +1,6 @@
-import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import javax.swing.*;
 
 public class HeatMap extends JPanel implements MouseListener {
 
@@ -33,8 +33,9 @@ public class HeatMap extends JPanel implements MouseListener {
         addMouseListener(this);
 
         // Tests get colors methods. Prints results to console.
-        for (int temp = (int) minTemp; temp < maxTemp; temp += 10) {
-            System.out.printf("%5d: %4d, %4d, %4d\n", temp, getRed(temp), getGreen(temp), getBlue(temp));
+        for (int temp = (int)minTemp; temp < maxTemp; temp += 10) {
+            System.out.printf("%5d: %4d, %4d, %4d\n", temp, getRed(temp),
+                              getGreen(temp), getBlue(temp));
         }
     }
 
@@ -46,7 +47,7 @@ public class HeatMap extends JPanel implements MouseListener {
         if (temp <= -75) {
             return 0;
         }
-        return (int) (255 * (temp + 75) / 75);
+        return (int)(255 * (temp + 75) / 75);
     }
 
     public int getGreen(double temp) {
@@ -60,9 +61,9 @@ public class HeatMap extends JPanel implements MouseListener {
             return 255;
         }
         if (temp > 75) {
-            return 255 - (int) (255 * (temp - 75) / 75);
+            return 255 - (int)(255 * (temp - 75) / 75);
         }
-        return (int) (255 * (temp + 150) / 75);
+        return (int)(255 * (temp + 150) / 75);
     }
 
     public int getBlue(double temp) {
@@ -72,7 +73,7 @@ public class HeatMap extends JPanel implements MouseListener {
         if (temp <= 0) {
             return 255;
         }
-        return 255 - (int) (255 * temp / 75);
+        return 255 - (int)(255 * temp / 75);
     }
 
     // draws squares representing the temp in each cell
@@ -87,17 +88,21 @@ public class HeatMap extends JPanel implements MouseListener {
             for (int c = 0; c < tempGrid[r].length; c++) {
 
                 double tVal = tempGrid[r][c];
-                g.setColor(new Color(getRed(tVal), getGreen(tVal), getBlue(tVal)));
+                g.setColor(
+                    new Color(getRed(tVal), getGreen(tVal), getBlue(tVal)));
 
-                int x = c * blockWidth; // (x,y) is the upper left hand corner of the rectangle
+                int x = c * blockWidth; // (x,y) is the upper left hand corner
+                                        // of the rectangle
                 int y = r * blockHeight;
                 g.fillRect(x, y, blockWidth, blockHeight);
             }
         }
 
         // Display temperatures of both sides
-        String avgLeftTempStr = String.format("%7.2f", tempGrid[tempGrid.length / 2][0]);
-        String avgRightTempStr = String.format("%7.2f", tempGrid[tempGrid.length / 2][tempGrid[0].length - 1]);
+        String avgLeftTempStr =
+            String.format("%7.2f", tempGrid[tempGrid.length / 2][0]);
+        String avgRightTempStr = String.format(
+            "%7.2f", tempGrid[tempGrid.length / 2][tempGrid[0].length - 1]);
 
         g.setColor(Color.black);
         g.setFont(new Font("Serif", Font.BOLD | Font.ITALIC, 60));
@@ -113,7 +118,6 @@ public class HeatMap extends JPanel implements MouseListener {
         clickedRow = event.getY() / (getHeight() / tempGrid.length + 1);
         clickedCol = event.getX() / (getWidth() / tempGrid[0].length + 1);
         clickTemp = event.getButton() == MouseEvent.BUTTON1 ? 1 : -1;
-
     }
 
     @Override
@@ -125,16 +129,13 @@ public class HeatMap extends JPanel implements MouseListener {
 
     // these mouse methods are unneeded for this lab
     @Override
-    public void mouseClicked(MouseEvent e) {
-    }
+    public void mouseClicked(MouseEvent e) {}
 
     @Override
-    public void mouseEntered(MouseEvent e) {
-    }
+    public void mouseEntered(MouseEvent e) {}
 
     @Override
-    public void mouseExited(MouseEvent e) {
-    }
+    public void mouseExited(MouseEvent e) {}
 
     private class Listener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
@@ -165,7 +166,8 @@ public class HeatMap extends JPanel implements MouseListener {
             }
 
             if (clickedRow != -1 && clickedCol != -1) {
-                tempGrid[clickedRow][clickedCol] = (clickTemp > 0 ? maxTemp : minTemp) * 10;
+                tempGrid[clickedRow][clickedCol] =
+                    (clickTemp > 0 ? maxTemp : minTemp) * 10;
             }
 
             repaint(); // leave this as the last line of code in actionPerformed

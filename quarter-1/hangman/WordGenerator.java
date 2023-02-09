@@ -12,9 +12,10 @@ public class WordGenerator {
             String filename = "hangmanWords.txt";
             file = new Scanner(new File(filename));
             int nWords = file.nextInt();
-            int cnt = (int) (Math.random() * nWords);
+            int cnt = (int)(Math.random() * nWords);
 
-            System.out.println("picking from: " + filename + " nWords: " + nWords + " offset: " + cnt);
+            System.out.println("picking from: " + filename +
+                               " nWords: " + nWords + " offset: " + cnt);
             for (int k = 0; k < cnt; k++)
                 file.next();
 
@@ -24,6 +25,5 @@ public class WordGenerator {
             System.out.println("fileNotFound");
             return "file not found";
         }
-
     }
 }
