@@ -1,6 +1,6 @@
 import java.util.Stack;
 
-public class Main {
+public class SortStack {
     public static void main(String[] args) {
         Stack<Integer> myStack = new Stack<Integer>();
 
