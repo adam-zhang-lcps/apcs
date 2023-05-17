@@ -1,5 +1,5 @@
-import java.util.*;
 import java.io.*;
+import java.util.*;
 
 public class WordCounter {
     public static void main(String[] args) {
@@ -9,7 +9,8 @@ public class WordCounter {
 
         try {
             Scanner infile = new Scanner(new File(filename));
-            PrintStream outfile = new PrintStream(new FileOutputStream(outputFileName));
+            PrintStream outfile =
+                new PrintStream(new FileOutputStream(outputFileName));
 
             processFile(infile, outfile);
 
@@ -30,19 +31,19 @@ public class WordCounter {
         }
 
         return newWord.toLowerCase();
-
     }
 
     public static void processFile(Scanner infile, PrintStream outfile) {
         // Declare and initialize a hashmap
         // Strings will be the keys and WordFrequency objects will be the values
-        HashMap<String, WordFrequency> map = new HashMap<String, WordFrequency>();
+        HashMap<String, WordFrequency> map =
+            new HashMap<String, WordFrequency>();
 
-        while (infile.hasNext()) { //repeats as long as the file has words left
+        while (infile.hasNext()) { // repeats as long as the file has words left
 
-            String word = infile.next().toLowerCase(); //retrieves the next word
-            word = stripPunctuation(word); //removes the punctuation
-
+            String word = infile.next().toLowerCase(); // retrieves the next
+                                                       // word
+            word = stripPunctuation(word); // removes the punctuation
 
             // either increment the object or
             // create a new WordFrequency object and add it to the hasmap

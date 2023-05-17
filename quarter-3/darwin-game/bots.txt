@@ -1,0 +1,4 @@
+AggroBot
+TrackerBot
+TeamBot
+DefinitelyNotCheatingBot

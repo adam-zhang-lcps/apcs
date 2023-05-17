@@ -7,17 +7,11 @@ public class WordFrequency implements Comparable<WordFrequency> {
         this.frequency = 1;
     }
 
-    public String getWord() {
-        return word;
-    }
+    public String getWord() { return word; }
 
-    public int getFrequency() {
-        return frequency;
-    }
+    public int getFrequency() { return frequency; }
 
-    public void increment() {
-        frequency++;
-    }
+    public void increment() { frequency++; }
 
     @Override
     public String toString() {
